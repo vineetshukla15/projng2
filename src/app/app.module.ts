@@ -3,12 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { MyFirstComponent } from './my-first/my-first.component';
+import { NestedComponent } from './nested/nested.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MyFirstComponent    
+    MyFirstComponent,
+    NestedComponent    
   ],
   imports: [
     BrowserModule

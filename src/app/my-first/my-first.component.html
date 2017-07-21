@@ -1,6 +1,6 @@
-<p>
-  My ng2 Application!
-</p>
-<h1>
-  My Name is {{employee.name}} and employee id is {{employee.id}}
-</h1>
+<h1> This is Parent Component</h1>
+
+<!--button [disabled]="buttonStatus">Show Nested Component</button-->
+
+<h2> NESTED OR CHILD COMPONENT STARTS HERE!</h2>
+<app-nested [nestedName]='firstName' [anotherName]='lastName' [hidden]='hidden' (informParent)='onNotify($event)'></app-nested>
