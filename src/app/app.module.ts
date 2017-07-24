@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http'; // To support calling http services
 
 import { AppComponent } from './app.component';
 import { MyFirstComponent } from './my-first/my-first.component';
 import { NestedComponent } from './nested/nested.component';
-
+import {FirstService} from './first.service'
 
 @NgModule({
   declarations: [
@@ -13,9 +14,9 @@ import { NestedComponent } from './nested/nested.component';
     NestedComponent    
   ],
   imports: [
-    BrowserModule
+    BrowserModule,HttpModule 
   ],
-  providers: [],
-  bootstrap: [MyFirstComponent]
+  providers: [FirstService], // Service is registered as Provider
+  bootstrap: [MyFirstComponent] //This is bootstrap component, means will be main container component
 })
 export class AppModule { }

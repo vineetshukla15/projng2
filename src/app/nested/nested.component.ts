@@ -1,5 +1,6 @@
 import { Component, Input,Output,EventEmitter } from '@angular/core';
-import {FirstService} from './first.service';
+import {FirstService} from '../first.service';
+
 @Component({
   selector: 'app-nested',
   templateUrl: './nested.component.html',
@@ -7,7 +8,11 @@ import {FirstService} from './first.service';
 })
 export class NestedComponent  {
   @Input() hidden:boolean;
-  constructor() { }
+  currencies;
+  
+  constructor(private firstService:FirstService) { 
+    this.currencies= firstService.getXchangeRates();
+  }
 
   @Input() nestedName:string ;
   @Input() anotherName:string ;
@@ -18,7 +23,5 @@ export class NestedComponent  {
   onClick(){
     this.informParent.emit('Tavant Technologies');
   }
-
-
 
 }
