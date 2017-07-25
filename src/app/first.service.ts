@@ -1,15 +1,26 @@
 import { Injectable } from '@angular/core';
 import {Http,Response} from '@angular/http'
-import { Observable } from 'rxjs/Rx';
+import 'rxjs/Rx';
 @Injectable()
 export class FirstService {
 
-  constructor(private http:Http) { 
+  public http:Http;
+  constructor(http:Http) { 
+    this.http= http;
   }
 
-  getXchangeRates():Observable<string>{
-      return this.http.get("http://api.fixer.io/latest") //This is how a rest call is made
-         .map(response=>response = response.json()) //the json object will be converted into type TODO 'any'
+  url:string="http://api.fixer.io/latest";
+  userurl:string="https://jsonplaceholder.typicode.com/users";
+
+  getXchangeRatesEUR(){
+      return this.http.get(this.userurl) //This is how a rest call is made
+         .map(response=>response = response.json()) 
+         
+   }
+
+   getXchangeRatesUSD(){
+      return this.http.get("http://api.fixer.io/latest?base=USD") //This is how a rest call is made
+         .map(response=>response = response.json()) 
          
    }
 
